@@ -2,6 +2,7 @@ package ante
 
 import (
 	"fmt"
+
 	"github.com/cosmos/cosmos-sdk/codec/legacy"
 	"github.com/cosmos/cosmos-sdk/crypto/keys/multisig"
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
@@ -58,6 +59,7 @@ func (vmd ValidateMemoDecorator) AnteHandle(ctx sdk.Context, tx sdk.Tx, simulate
 
 	memoLength := len(memoTx.GetMemo())
 
+	// modify by seanxu
 	if memoLength > 0 {
 		msgs := memoTx.GetMsgs()
 		msgType := ""
