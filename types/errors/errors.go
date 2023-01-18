@@ -186,6 +186,9 @@ var (
 	//An error occurred while parsing Json data
 	ErrParsingJson = Register(RootCodespace, 106, "An error occurred while parsing Json data")
 
+	//An error occurred while add Json data
+	ErrAddJsonData = Register(RootCodespace, 107, "An error occurred while add Json data")
+
 	// ErrPanic is only set when we recover from a panic, so we know to
 	// redact potentially sensitive system info
 	ErrPanic = errorsmod.ErrPanic
