@@ -7,7 +7,9 @@ import (
 // Type Aliases to errors module
 //
 // Deprecated: functionality of this package has been moved to it's own module:
-//    cosmossdk.io/errors
+//
+//	cosmossdk.io/errors
+//
 // Please use the above module instead of this package.
 var (
 	SuccessABCICode    = errorsmod.SuccessABCICode
@@ -164,6 +166,25 @@ var (
 	// ErrInvalidGasLimit defines an error when an invalid GasWanted value is
 	// supplied.
 	ErrInvalidGasLimit = Register(RootCodespace, 41, "invalid gas limit")
+
+	// Add error code by seanxu
+	// AES encrypted data check error.
+	ErrAESValidateBasic = Register(RootCodespace, 101, "AES encrypted data check error")
+
+	// RSA encrypted data check error.
+	ErrRSAKeyPairCheck = Register(RootCodespace, 102, "RSA key pair verification error")
+
+	// RSA key pair does not exist
+	ErrRSAKeyPairExist = Register(RootCodespace, 103, "RSA key pair does not exist")
+
+	// An error occurred during RSA encryption
+	ErrRSAKeyEncryption = Register(RootCodespace, 104, "An error occurred during RSA encryption")
+
+	//RSA key already configured, update disabled
+	ErrUpdateRSAKeyPair = Register(RootCodespace, 105, "RSA key already configured, update disabled")
+
+	//An error occurred while parsing Json data
+	ErrParsingJson = Register(RootCodespace, 106, "An error occurred while parsing Json data")
 
 	// ErrPanic is only set when we recover from a panic, so we know to
 	// redact potentially sensitive system info
