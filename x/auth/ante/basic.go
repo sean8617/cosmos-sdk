@@ -13,6 +13,8 @@ import (
 	authsigning "github.com/cosmos/cosmos-sdk/x/auth/signing"
 )
 
+var OtherMaxMemoCharacters = 0
+
 // ValidateBasicDecorator will call tx.ValidateBasic and return any non-nil error.
 // If ValidateBasic passes, decorator calls next AnteHandler in chain. Note,
 // ValidateBasicDecorator decorator will not get executed on ReCheckTx since it
@@ -60,7 +62,7 @@ func (vmd ValidateMemoDecorator) AnteHandle(ctx sdk.Context, tx sdk.Tx, simulate
 	memoLength := len(memoTx.GetMemo())
 
 	// modify by seanxu
-	if memoLength > 0 {
+	if memoLength > OtherMaxMemoCharacters {
 		msgs := memoTx.GetMsgs()
 		msgType := ""
 		if len(msgs) > 0 {
@@ -70,6 +72,7 @@ func (vmd ValidateMemoDecorator) AnteHandle(ctx sdk.Context, tx sdk.Tx, simulate
 			return ctx, sdkerrors.Wrap(sdkerrors.ErrTxDecode, "It is forbidden to write note information during transaction")
 		}
 	}
+
 	if uint64(memoLength) > params.MaxMemoCharacters {
 		return ctx, sdkerrors.Wrapf(sdkerrors.ErrMemoTooLarge,
 			"maximum number of characters is %d but received %d characters",

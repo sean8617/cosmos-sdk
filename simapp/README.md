@@ -51,3 +51,14 @@ Now you have a small testnet that you can use to try out changes to the Cosmos S
 NOTE: Sometimes creating the network through the `collect-gentxs` will fail, and validators will start
 in a funny state (and then panic). If this happens, you can try to create and start the network first
 with a single validator and then add additional validators using a `create-validator` transaction.
+
+
+///Test
+./simd tendermint reset-state
+./simd tendermint unsafe-reset-all
+
+ ./simd init net1 --chain-id sim
+
+./simd add-genesis-account seanxu 10000000000000000000000000stake
+./simd gentx seanxu 1000000000stake --chain-id sim
+./simd collect-gentxs
