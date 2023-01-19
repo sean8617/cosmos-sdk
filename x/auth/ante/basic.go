@@ -13,6 +13,7 @@ import (
 	authsigning "github.com/cosmos/cosmos-sdk/x/auth/signing"
 )
 
+// Set MaxMemoCharacters for proofchain
 var OtherMaxMemoCharacters = 0
 
 // ValidateBasicDecorator will call tx.ValidateBasic and return any non-nil error.
