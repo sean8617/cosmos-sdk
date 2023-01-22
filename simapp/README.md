@@ -62,3 +62,6 @@ with a single validator and then add additional validators using a `create-valid
 ./simd add-genesis-account seanxu 10000000000000000000000000stake
 ./simd gentx seanxu 1000000000stake --chain-id sim
 ./simd collect-gentxs
+
+//
+git push origin v0.46.1-beta.4

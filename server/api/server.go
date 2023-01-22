@@ -12,6 +12,7 @@ import (
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
+	"github.com/spf13/viper"
 	"github.com/tendermint/tendermint/libs/log"
 	tmrpcserver "github.com/tendermint/tendermint/rpc/jsonrpc/server"
 
@@ -90,6 +91,9 @@ func New(clientCtx client.Context, logger log.Logger) *Server {
 // non-blocking, so an external signal handler must be used.
 func (s *Server) Start(cfg config.Config) error {
 	s.mtx.Lock()
+
+	aa := viper.Get("tee-address")
+	_ = aa
 
 	tmCfg := tmrpcserver.DefaultConfig()
 	tmCfg.MaxOpenConnections = int(cfg.API.MaxOpenConnections)

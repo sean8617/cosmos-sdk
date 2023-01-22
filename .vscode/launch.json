@@ -10,7 +10,7 @@
             "request": "launch",
             "mode": "debug",
             "program": "simapp/simd/main.go",
-            "args": ["start"]
+            "args": ["start", "--home", "z:/aaaa/.simapp"]
 
         }
 
