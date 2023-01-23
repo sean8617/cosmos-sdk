@@ -10,24 +10,26 @@ import (
 
 // Default constants
 const (
-	chainID        = ""
-	keyringBackend = "os"
-	output         = "text"
-	node           = "tcp://localhost:26657"
-	broadcastMode  = "sync"
+	chainID           = ""
+	keyringBackend    = "os"
+	output            = "text"
+	node              = "tcp://localhost:26657"
+	broadcastMode     = "sync"
+	teeMachineAddress = "127.0.0.1:3232"
 )
 
 type ClientConfig struct {
-	ChainID        string `mapstructure:"chain-id" json:"chain-id"`
-	KeyringBackend string `mapstructure:"keyring-backend" json:"keyring-backend"`
-	Output         string `mapstructure:"output" json:"output"`
-	Node           string `mapstructure:"node" json:"node"`
-	BroadcastMode  string `mapstructure:"broadcast-mode" json:"broadcast-mode"`
+	ChainID           string `mapstructure:"chain-id" json:"chain-id"`
+	KeyringBackend    string `mapstructure:"keyring-backend" json:"keyring-backend"`
+	Output            string `mapstructure:"output" json:"output"`
+	Node              string `mapstructure:"node" json:"node"`
+	BroadcastMode     string `mapstructure:"broadcast-mode" json:"broadcast-mode"`
+	TeeMachineAddress string `mapstructure:"tee-machine-address" json:"tee-machine-address"`
 }
 
 // defaultClientConfig returns the reference to ClientConfig with default values.
 func defaultClientConfig() *ClientConfig {
-	return &ClientConfig{chainID, keyringBackend, output, node, broadcastMode}
+	return &ClientConfig{chainID, keyringBackend, output, node, broadcastMode, teeMachineAddress}
 }
 
 func (c *ClientConfig) SetChainID(chainID string) {

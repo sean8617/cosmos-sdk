@@ -65,3 +65,4 @@ with a single validator and then add additional validators using a `create-valid
 
 //
 git push origin v0.46.1-beta.4
+https://sum.golang.org/lookup/github.com/sean8617/cosmos-sdk@v0.46.1-beta.4
