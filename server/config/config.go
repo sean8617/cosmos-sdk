@@ -42,9 +42,6 @@ type BaseConfig struct {
 	// specified in this config (e.g. 0.25token1;0.0001token2).
 	MinGasPrices string `mapstructure:"minimum-gas-prices"`
 
-	// add by seanxu
-	TeeAddress string `mapstructure:"tee-address"`
-
 	Pruning           string `mapstructure:"pruning"`
 	PruningKeepRecent string `mapstructure:"pruning-keep-recent"`
 	PruningInterval   string `mapstructure:"pruning-interval"`
@@ -309,9 +306,7 @@ func GetConfig(v *viper.Viper) (Config, error) {
 
 	return Config{
 		BaseConfig: BaseConfig{
-			MinGasPrices: v.GetString("minimum-gas-prices"),
-			//add by seanxu
-			TeeAddress:        v.GetString("tee-address"),
+			MinGasPrices:      v.GetString("minimum-gas-prices"),
 			InterBlockCache:   v.GetBool("inter-block-cache"),
 			Pruning:           v.GetString("pruning"),
 			PruningKeepRecent: v.GetString("pruning-keep-recent"),
